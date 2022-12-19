@@ -8,46 +8,61 @@ public class Cursor : MonoBehaviour
 {
     private Animator animation;
     public int proverka = 0;
+    public int proverka2 = 1;
     
     private void OnMouseEnter()
     {
-        
-        if(GameObject.Find("start_button").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("anim2")==false&& GameObject.Find("start_button").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("anim") == false)
+        proverka2 = 1;
+        if (GameObject.Find("start_button").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("anim") == false)
         {
             GameObject.Find("start_button").GetComponent<Animator>().Play("anim");
-            GameObject.Find("start_button").GetComponent<Animator>().SetBool("proverka", true);
-            Debug.Log(1);
+            GameObject.Find("start_button").GetComponent<Animator>().SetBool("proverka", false);
         }
-       
         
-        
+        //if(GameObject.Find("start_button").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("anim2")==false&& 
+        //GameObject.Find("start_button").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("anim") == false)
+        //   {
+        //     Debug.Log("abm");
+        //    GameObject.Find("start_button").GetComponent<Animator>().Play("anim");
+        //     GameObject.Find("start_button").GetComponent<Animator>().SetBool("proverka", true);
+        //    
+        //}
+
+
+
     }
     private void OnMouseExit()
     {
-        if(proverka==0)
+        proverka2=0;
+        StartCoroutine(abnm());
+        if (GameObject.Find("start_button").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("anim") == false)
         {
-            proverka++;
+            GameObject.Find("start_button").GetComponent<Animator>().SetBool("proverka", true);
+        }
+          
+       /* if(proverka==0)
+        //{
+         //   proverka++;
         }
         
-        if (GameObject.Find("start_button").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("anim") == false&& GameObject.Find("start_button").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("anim2") == false && GameObject.Find("start_button").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("sleep2") == true)
+        if (GameObject.Find("start_button").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("anim") == false&&
+            GameObject.Find("start_button").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("anim2") == false )
         {
-            
+            Debug.Log("abn");
             GameObject.Find("start_button").GetComponent<Animator>().Play("anim2");
             
         }
-
+       */
     }
-    private void Update()
+    IEnumerator abnm()
     {
-        Debug.Log(proverka+"ä");
-       if(proverka==1&& GameObject.Find("start_button").GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("anim") == false)
-       {
+        yield return new WaitForSeconds(2);
+        if(proverka2==0)
+        {
             GameObject.Find("start_button").GetComponent<Animator>().Play("anim2");
-            proverka=0;
-            
-       }
-                
+        }
     }
+   
    
 
 
