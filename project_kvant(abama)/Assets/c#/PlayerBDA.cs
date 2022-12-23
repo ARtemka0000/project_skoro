@@ -1,7 +1,9 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerBDA : MonoBehaviour
 {
@@ -44,6 +46,7 @@ public class PlayerBDA : MonoBehaviour
                     var sprite = GameObject.Find("Player").GetComponent<Player>().vse[i];
                     GameObject.Find("Player").GetComponent<Player>().armorVERH = sprite;
                     GameObject.Find("shlem").GetComponent<SpriteRenderer>().sprite = sprite;
+                    GameObject.Find("helpM").GetComponent<SpriteRenderer>().sprite = sprite;
                     break;
                 }
             }
