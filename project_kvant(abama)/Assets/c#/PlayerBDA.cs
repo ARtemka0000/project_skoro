@@ -104,4 +104,12 @@ public class PlayerBDA : MonoBehaviour
             }
         }
     }
+    public void inventCLICKN()
+    {
+        GameObject.Find("skor").GetComponent<Animator>().Play("pered");
+    }
+    public void inventCLi()
+    {
+        GameObject.Find("skor").GetComponent<Animator>().Play("nazad");
+    }
 }
