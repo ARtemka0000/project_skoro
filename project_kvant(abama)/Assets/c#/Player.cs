@@ -41,7 +41,8 @@ public class Player : MonoBehaviour
         {
             if (hit[n]==GameObject.Find("maneken"))
             {
-                Debug.Log(2);
+                
+                GameObject.Find("maneken").GetComponent<manek>().Udar();
                 break;
             }
         }
